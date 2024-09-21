@@ -131,6 +131,10 @@ public class ByteMessage extends ByteBuf {
 
     public byte[] readBytesArray() {
         int length = readVarInt();
+        return readBytesArray(length);
+    }
+
+    public byte[] readBytesArray(int length) {
         byte[] array = new byte[length];
         buf.readBytes(array);
         return array;
